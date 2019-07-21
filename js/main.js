@@ -157,42 +157,34 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-  const figure = document.createElement('figure');
-  const figcaption = document.createElement('figcaption');
-  figcaption.className = 'restaurant-info';
 
+  const figure = document.createElement('figure');
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = restaurant.name + ' restaurant';
   figure.append(image);
 
-  const textWrapper = document.createElement('div');
-  textWrapper.className = 'restaurant-text';
-  const name = document.createElement('h2');
+  const figcaption = document.createElement('figcaption');
+  figcaption.className = 'restaurant-info';
+  const name = document.createElement('h3');
   name.className = 'restaurant-name';
   name.innerHTML = restaurant.name;
-  textWrapper.append(name);
 
   const neighborhood = document.createElement('p');
+  neighborhood.className = 'restaurant-neighborhood';
   neighborhood.innerHTML = restaurant.neighborhood;
-  textWrapper.append(neighborhood);
 
   const address = document.createElement('p');
+  address.className = 'restaurant-address';
   address.innerHTML = restaurant.address;
-  textWrapper.append(address);
-  figcaption.append(textWrapper);
 
-  const btnWrapper = document.createElement('div');
-  btnWrapper.className = 'restaurant-btn';
   const more = document.createElement('a');
+  more.className = 'restaurant-details';
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  more.className = 'restaurant-details';
-  btnWrapper.append(more);
 
-  figcaption.append(textWrapper);
-  figcaption.append(btnWrapper);
+  figcaption.append(name, neighborhood, address, more);
 
   figure.append(figcaption);
   li.append(figure);
