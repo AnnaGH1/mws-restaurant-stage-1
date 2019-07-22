@@ -168,7 +168,7 @@ createRestaurantHTML = (restaurant) => {
 
   const figcaption = document.createElement('figcaption');
   figcaption.className = 'restaurant-info';
-  const name = document.createElement('h3');
+  const name = document.createElement('h2');
   name.className = 'restaurant-name';
   name.innerHTML = restaurant.name;
 
