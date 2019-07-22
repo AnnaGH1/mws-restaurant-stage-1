@@ -10,40 +10,36 @@
 
 <body>
   <header class="header">
-    <nav class="nav">
-      <h1 class="header-title">
-        <a class="header-link" href="/">Restaurant Reviews</a>
-      </h1>
-    </nav>
+    <h1 class="header-title">
+      <a class="header-link" href="/">Restaurant Reviews</a>
+    </h1>
   </header>
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" aria-label="location" role="navigation"></div>
     </section>
     <section>
-      <div class="filter-options">
-        <form action="#">
-          <fieldset class="filter-fieldset">
-            <legend class="filter-title">Filter  results by</legend>
-            <div class="filter-wrapper">
-              <div class="filter-item">
-                <label class="filter-label" for="neighborhoods-select">Neighborhood</label>
-                <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
-                  <option value="all">All Neighborhoods</option>
-                </select>
-              </div>
-              <div class="filter-item">
-                <label class="filter-label" for="cuisines-select">Cuisine</label>
-                <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
-                  <option value="all">All Cuisines</option>
-                </select>
-              </div>
+      <form class="filter-options" action="#">
+        <fieldset class="filter-fieldset" tabindex="0">
+          <legend class="filter-title">Filter  results by</legend>
+          <div class="filter-wrapper">
+            <div class="filter-item">
+              <label class="filter-label" for="neighborhoods-select">Neighborhood</label>
+              <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-label="neighborhoods">
+                <option value="all">All Neighborhoods</option>
+              </select>
             </div>
-          </fieldset>
-        </form>
-      </div>
-      <ul class="restaurants-list" id="restaurants-list"></ul>
+            <div class="filter-item">
+              <label class="filter-label" for="cuisines-select">Cuisine</label>
+              <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-label="cuisines">
+                <option value="all">All Cuisines</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <ul class="restaurants-list" id="restaurants-list" tabindex="0"></ul>
     </section>
   </main>
   <footer class="footer">
